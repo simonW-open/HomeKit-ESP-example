@@ -1,11 +1,11 @@
 set(include_dirs
-                        include
+                include
 )
 set(srcs
-               "src/fformUrlEncode.c"
-               "src/softAPConfig.c"
+        "src/formUrlEncode.c"
+        "src/softAPConfig.c"
 )
 
-idf_component_register(SRCS "${srcs}"
-                      INCLUDE_DIRS "${include_dirs}"
+idf_component_register( SRCS "${srcs}"
+                INCLUDE_DIRS "${include_dirs}"
 )
