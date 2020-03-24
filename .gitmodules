@@ -1,0 +1,3 @@
+[submodule "components/esp-idf/http-parser/http-parser"]
+	path = components/esp-idf/http-parser/http-parser
+	url = https://github.com/nodejs/http-parser.git
