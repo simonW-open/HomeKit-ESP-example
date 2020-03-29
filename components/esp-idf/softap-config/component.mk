@@ -1,0 +1,12 @@
+#
+# Component Makefile
+#
+ifdef CONFIG_SOFTAP_CONFIG_ENABLED
+
+COMPONENT_SRCDIRS := src
+
+COMPONENT_ADD_INCLUDEDIRS := include
+
+COMPONENT_PRIV_INCLUDEDIRS += context
+
+endif

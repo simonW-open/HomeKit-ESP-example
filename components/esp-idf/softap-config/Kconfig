@@ -1,0 +1,41 @@
+menu "softAP-config"
+
+    config SOFTAPCONFIG_ENABLED
+        bool "softAP-config"
+        help
+            select this option to enable softAP-config and show the submenu with softAP-config configuration choices.
+
+    config SAC_AP_SSID_PREFIX
+        string "AP SSID prefix"
+        depends on SOFTAPCONFIG_ENABLED
+        default "espressif"
+        help
+            The prefix of AP SSID.
+    
+    choice SAC_AP_AUTHMODE
+        prompt "select soft AP auth mode"
+        depends on SOFTAPCONFIG_ENABLED
+        help
+            soft ap auth mode
+
+        config SAC_AP_AUTHMODE_OPEN
+            bool "open"
+        config SAC_AP_AUTHMODE_WEP
+            bool "wep"
+        config SAC_AP_AUTHMODE_WPA_PSK
+            bool "wpa psk"
+        config SAC_AP_AUTHMODE_WPA2_PSK
+            bool "wpa2 psk"
+        config SAC_AP_AUTHMODE_WPA_WPA2_PSK
+            bool "wpa/wpa2 psk"
+    endchoice
+
+    config SAC_AUTH_PSWD
+        string "AP password"
+        depends on SAC_AP_AUTHMODE_WEP || SAC_AP_AUTHMODE_WPA_PSK || SAC_AP_AUTHMODE_WPA2_PSK || SAC_AP_AUTHMODE_WPA_WPA2_PSK
+        default "123456789"
+        help
+            the AP password.
+
+
+endmenu
